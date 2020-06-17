@@ -9,8 +9,6 @@ import AppBroadcast from "@/components/AppBroadcast"
 import AppSplash from "@/components/AppSplash"
 import DictionarySetting from "@/components/DictionarySetting"
 import Version from "@/components/Version"
-
-
 import VueRouter from 'vue-router'
 
 const routers = [
@@ -72,7 +70,6 @@ const routers = [
             }
         ]
     },
-
 ]
 
 const router = new VueRouter({

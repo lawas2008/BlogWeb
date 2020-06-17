@@ -45,7 +45,7 @@
                 <el-dropdown>
                     <i class="el-icon-setting" style="margin-right: 15px;margin-left: 15px"></i>
                     <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item>个人信息</el-dropdown-item>
+                        <el-dropdown-item @click.native="show">个人信息</el-dropdown-item>
                         <el-dropdown-item>修改密码</el-dropdown-item>
                         <el-dropdown-item>退出登录</el-dropdown-item>
                     </el-dropdown-menu>
@@ -56,26 +56,42 @@
                 <router-view></router-view>
             </el-main>
         </el-container>
+        <!--个人信息弹窗-->
+        <el-dialog title="编辑" :visible.sync="isShow" center :append-to-body='true' :lock-scroll="false" width="30%">
+            <user-dialog/>
+        </el-dialog>
     </el-container>
 </template>
 
 <script>
+    import UserInfoDialog from "@/components/UserInfoDialog";
+
     export default {
         name: "hello",
+        components: {
+            'user-dialog': UserInfoDialog
+        },
         data() {
             return {
+                isShow: false,
+            }
+        },
+        methods: {
+            show() {
+                this.isShow = true;
             }
         }
     };
 </script>
 
 <style>
-    .el-header{
+    .el-header {
         background-color: #B3C0D1;
         color: #333333;
         line-height: 60px;
     }
-    .el-aside{
+
+    .el-aside {
         color: #333333;
     }
 </style>
